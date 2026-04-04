@@ -94,13 +94,31 @@ export default function Home() {
         canvas.height = dim.height as number;
 
         // Draw image onto canvas
-        await pica.resize(img, canvas, {
-          unsharpAmount: 80,
-          unsharpRadius: 0.6,
-          unsharpThreshold: 2
-        });
-        
-        const blob = await pica.toBlob(canvas, file.type || 'image/jpeg', 0.90);
+        let blob: Blob | null = null;
+        try {
+          await pica.resize(img, canvas, {
+            unsharpAmount: 80,
+            unsharpRadius: 0.6,
+            unsharpThreshold: 2
+          });
+          blob = await pica.toBlob(canvas, file.type || 'image/jpeg', 0.90);
+        } catch (picaError) {
+          console.warn("Pica processing failed, likely due to fingerprinting protection. Falling back to native canvas API.", picaError);
+          const ctx = canvas.getContext('2d');
+          if (ctx) {
+            ctx.imageSmoothingEnabled = true;
+            ctx.imageSmoothingQuality = 'high';
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            
+            blob = await new Promise<Blob | null>((resolve) => {
+              canvas.toBlob((b) => resolve(b), file.type || 'image/jpeg', 0.90);
+            });
+          }
+        }
+
+        if (!blob) {
+          throw new Error(`Failed to create blob for dimensions ${dim.width}x${dim.height}`);
+        }
         
         const extension = file.name.split('.').pop() || 'jpg';
         const baseName = file.name.replace(`.${extension}`, '');

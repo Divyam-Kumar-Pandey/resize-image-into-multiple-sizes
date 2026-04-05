@@ -15,6 +15,8 @@ export default function Home() {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [dimensions, setDimensions] = useState<Dimension[]>([{ id: '1', width: '', height: '' }]);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [showHowItWorks, setShowHowItWorks] = useState(false);
+  const [showSupportedFormats, setShowSupportedFormats] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -152,9 +154,9 @@ export default function Home() {
         <nav className="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
           <div className="text-2xl font-serif font-bold text-[#4a7c59] tracking-tight">Terra Resize</div>
           <div className="hidden md:flex items-center space-x-8">
-            <a className="text-stone-600 font-medium hover:text-[#4a7c59] transition-colors duration-200" href="#">How it Works</a>
-            <a className="text-stone-600 font-medium hover:text-[#4a7c59] transition-colors duration-200" href="#">Supported Formats</a>
-            <a className="text-stone-600 font-medium hover:text-[#4a7c59] transition-colors duration-200" href="#">Privacy</a>
+            <button onClick={() => setShowHowItWorks(true)} className="text-stone-600 font-medium hover:text-[#4a7c59] transition-colors duration-200">How it Works</button>
+            <button onClick={() => setShowSupportedFormats(true)} className="text-stone-600 font-medium hover:text-[#4a7c59] transition-colors duration-200">Supported Formats</button>
+            <a className="text-stone-600 font-medium hover:text-[#4a7c59] transition-colors duration-200" href="/privacy">Privacy</a>
           </div>
           <button 
             onClick={() => fileInputRef.current?.click()}
@@ -360,6 +362,91 @@ export default function Home() {
             </div>
           </div>
         </section>
+        
+        {/* Modals */}
+        {showHowItWorks && (
+          <div 
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-stone-900/50 backdrop-blur-sm p-4 animate-in fade-in duration-200"
+            onClick={() => setShowHowItWorks(false)}
+          >
+            <div 
+              className="bg-[#faf6f0] rounded-2xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-stone-200 relative animate-in fade-in zoom-in-95 duration-300"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button onClick={() => setShowHowItWorks(false)} className="absolute top-6 right-6 text-stone-400 hover:text-[#4a7c59] transition-colors">
+                <span className="material-symbols-outlined">close</span>
+              </button>
+              <h2 className="text-3xl font-bold font-headline text-[#4a7c59] mb-6">How it Works</h2>
+              <div className="space-y-6 text-stone-700 leading-relaxed">
+                <p>Terra Resize provides a simple, client-side only approach to resizing your images without uploading them to any external server. Here's our straightforward process:</p>
+                <div className="space-y-4">
+                  <div className="flex gap-4">
+                    <div className="w-8 h-8 rounded-full bg-[#4a7c59]/10 text-[#4a7c59] flex items-center justify-center font-bold shrink-0">1</div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">Select Your Image</h4>
+                      <p className="text-sm">Drag and drop or select an image from your device. It stays in your browser.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="w-8 h-8 rounded-full bg-[#4a7c59]/10 text-[#4a7c59] flex items-center justify-center font-bold shrink-0">2</div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">Choose Dimensions</h4>
+                      <p className="text-sm">Add one or multiple output sizes. Use standard presets or define exact pixels.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="w-8 h-8 rounded-full bg-[#4a7c59]/10 text-[#4a7c59] flex items-center justify-center font-bold shrink-0">3</div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">Process & Download</h4>
+                      <p className="text-sm">Our powerful core resizes the images instantly and bundles them into a ZIP file for a clean download.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {showSupportedFormats && (
+          <div 
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-stone-900/50 backdrop-blur-sm p-4 animate-in fade-in duration-200"
+            onClick={() => setShowSupportedFormats(false)}
+          >
+            <div 
+              className="bg-[#faf6f0] rounded-2xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-stone-200 relative animate-in fade-in zoom-in-95 duration-300"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button onClick={() => setShowSupportedFormats(false)} className="absolute top-6 right-6 text-stone-400 hover:text-[#4a7c59] transition-colors">
+                <span className="material-symbols-outlined">close</span>
+              </button>
+              <h2 className="text-3xl font-bold font-headline text-[#4a7c59] mb-6">Supported Formats</h2>
+              <div className="space-y-6 text-stone-700 leading-relaxed">
+                <p>Terra Resize is built to handle the most common standard image formats native to modern web browsers.</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm">
+                    <h4 className="font-bold text-[#4a7c59] mb-2 flex items-center gap-2"><span className="material-symbols-outlined text-sm">image</span> JPEG / JPG</h4>
+                    <p className="text-sm text-stone-500">Perfect for photographs and rich color images with standard compression.</p>
+                  </div>
+                  <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm">
+                    <h4 className="font-bold text-[#4a7c59] mb-2 flex items-center gap-2"><span className="material-symbols-outlined text-sm">image</span> PNG</h4>
+                    <p className="text-sm text-stone-500">Ideal for graphics, logos, and images requiring a transparent background.</p>
+                  </div>
+                  <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm">
+                    <h4 className="font-bold text-[#4a7c59] mb-2 flex items-center gap-2"><span className="material-symbols-outlined text-sm">image</span> WEBP</h4>
+                    <p className="text-sm text-stone-500">Modern format providing superior lossless and lossy compression for web use.</p>
+                  </div>
+                  <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm">
+                    <h4 className="font-bold text-[#4a7c59] mb-2 flex items-center gap-2"><span className="material-symbols-outlined text-sm">image</span> HEIC</h4>
+                    <p className="text-sm text-stone-500">Supported natively largely on Apple devices. Converted seamlessly.</p>
+                  </div>
+                </div>
+                <div className="mt-6 p-4 bg-amber-50 text-amber-800 rounded-xl text-sm italic border border-amber-200">
+                  Note: Final exports are generally converted to standardized .jpg or matching formats depending on browser capabilities to ensure maximum compatibility.
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </main>
 
       {/* Footer */}
@@ -370,8 +457,8 @@ export default function Home() {
             <p className="text-stone-500 text-sm mt-2 font-sans">© 2024 Terra Organic Design. All rights reserved.</p>
           </div>
           <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
-            <a className="text-stone-500 font-sans text-sm hover:text-[#4a7c59] transition-colors" href="#">Privacy Policy</a>
-            <a className="text-stone-500 font-sans text-sm hover:text-[#4a7c59] transition-colors" href="#">Terms of Service</a>
+            <a className="text-stone-500 font-sans text-sm hover:text-[#4a7c59] transition-colors" href="/privacy">Privacy Policy</a>
+            <a className="text-stone-500 font-sans text-sm hover:text-[#4a7c59] transition-colors" href="/terms">Terms of Service</a>
             <a className="flex items-center gap-2 text-stone-500 font-sans text-sm hover:text-[#4a7c59] transition-colors" href="#">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
               Github

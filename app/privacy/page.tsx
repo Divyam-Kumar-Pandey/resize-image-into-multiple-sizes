@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function PrivacyPolicy() {
   return (
     <>
-      <header className="sticky top-0 z-50 bg-[#faf6f0] border-b border-stone-200 shadow-sm opacity-90 backdrop-blur-sm">
+      <header className="sticky top-0 z-50 bg-[#faf6f0] border-b border-stone-200 shadow-sm backdrop-blur-sm">
         <nav className="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
           <Link href="/" className="text-2xl font-serif font-bold text-[#4a7c59] tracking-tight hover:opacity-80 transition-opacity">
             Terra Resize

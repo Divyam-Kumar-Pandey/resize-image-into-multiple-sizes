@@ -153,7 +153,7 @@ export default function Home() {
       {/* TopNavBar */}
       <header className="sticky top-0 z-50 bg-[#faf6f0] border-b border-stone-200 shadow-sm">
         <nav className="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
-          <div className="text-2xl font-serif font-bold text-[#4a7c59] tracking-tight">Terra Resize</div>
+          <div className="text-2xl font-serif font-bold text-[#4a7c59] tracking-tight">MultiResize</div>
           <div className="hidden md:flex items-center space-x-8">
             <button onClick={() => setShowHowItWorks(true)} className="text-stone-600 font-medium hover:text-[#4a7c59] transition-colors duration-200">How it Works</button>
             <button onClick={() => setShowSupportedFormats(true)} className="text-stone-600 font-medium hover:text-[#4a7c59] transition-colors duration-200">Supported Formats</button>
@@ -382,7 +382,7 @@ export default function Home() {
               </button>
               <h2 className="text-3xl font-bold font-headline text-[#4a7c59] mb-6">How it Works</h2>
               <div className="space-y-6 text-stone-700 leading-relaxed">
-                <p>Terra Resize provides a simple, client-side only approach to resizing your images without uploading them to any external server. Here's our straightforward process:</p>
+                <p>MultiResize provides a simple, client-side only approach to resizing your images without uploading them to any external server. Here's our straightforward process:</p>
                 <div className="space-y-4">
                   <div className="flex gap-4">
                     <div className="w-8 h-8 rounded-full bg-[#4a7c59]/10 text-[#4a7c59] flex items-center justify-center font-bold shrink-0">1</div>
@@ -425,7 +425,7 @@ export default function Home() {
               </button>
               <h2 className="text-3xl font-bold font-headline text-[#4a7c59] mb-6">Supported Formats</h2>
               <div className="space-y-6 text-stone-700 leading-relaxed">
-                <p>Terra Resize is built to handle the most common standard image formats native to modern web browsers.</p>
+                <p>MultiResize is built to handle the most common standard image formats native to modern web browsers.</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm">
                     <h4 className="font-bold text-[#4a7c59] mb-2 flex items-center gap-2"><span className="material-symbols-outlined text-sm">image</span> JPEG / JPG</h4>
@@ -457,8 +457,8 @@ export default function Home() {
       <footer className="bg-[#faf6f0] border-t border-stone-200">
         <div className="flex flex-col md:flex-row justify-between items-center px-8 py-12 w-full max-w-7xl mx-auto">
           <div className="mb-8 md:mb-0">
-            <span className="text-lg font-serif text-[#4a7c59] font-bold">Terra Organic Design</span>
-            <p className="text-stone-500 text-sm mt-2 font-sans">© 2024 Terra Organic Design. All rights reserved.</p>
+            <span className="text-lg font-serif text-[#4a7c59] font-bold">MultiResize</span>
+            <p className="text-stone-500 text-sm mt-2 font-sans">© 2024 MultiResize. All rights reserved.</p>
           </div>
           <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
             <a className="text-stone-500 font-sans text-sm hover:text-[#4a7c59] transition-colors" href="/privacy">Privacy Policy</a>

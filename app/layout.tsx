@@ -13,7 +13,7 @@ const nunitoSans = Nunito_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Terra Resize — Fast, Free, Organic Image Resizing",
+  title: "MultiResize — Fast, Free, Organic Image Resizing",
   description: "Effortlessly adjust your photos for social media or print. Grounded in simplicity, rooted in quality.",
 };
 

@@ -50,6 +50,7 @@ export default function RootLayout({
     >
       <head>
           <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+          <meta name="google-site-verification" content="SyxP_GlpbV2q7l23-vdX_TqA_3qwfMI0yg249pFOnYk" />
       </head>
       <body className="min-h-full flex flex-col selection:bg-primary/20">{children}</body>
     </html>

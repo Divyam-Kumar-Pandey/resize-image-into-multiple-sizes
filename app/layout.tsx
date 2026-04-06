@@ -13,8 +13,28 @@ const nunitoSans = Nunito_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "MultiResize — Fast, Free, Organic Image Resizing",
-  description: "Effortlessly adjust your photos for social media or print. Grounded in simplicity, rooted in quality.",
+  title: "MultiResize — Turn One Image into Multiple Sizes (Free, in Browser)",
+  description:
+    "Resize one image into many different sizes at once. Add custom widths and heights or presets, then download every version in a single ZIP—all processed locally in your browser.",
+  keywords: [
+    "resize one image to multiple sizes",
+    "batch image resize",
+    "multiple image sizes from one photo",
+    "resize image for social media",
+    "free image resizer",
+  ],
+  openGraph: {
+    title: "MultiResize — One image, many sizes",
+    description:
+      "Upload one picture and export multiple resized copies at once. Private, fast, and free in your browser.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "MultiResize — One image, many sizes",
+    description:
+      "Upload one picture and export multiple resized copies at once. Private, fast, and free in your browser.",
+  },
 };
 
 export default function RootLayout({

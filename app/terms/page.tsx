@@ -46,8 +46,8 @@ export default function TermsOfService() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-[#2d4d36] mb-4">4. No Warranties ("As Is")</h2>
-              <p>The service is provided "AS IS" and "AS AVAILABLE" without warranties of any kind, either express or implied. While we strive for high-quality resizing and reliable performance, we do not guarantee that the service will be error-free or uninterrupted. We are not responsible for any data loss, including the loss of your original or resized images.</p>
+              <h2 className="text-2xl font-bold text-[#2d4d36] mb-4">4. No Warranties (&quot;As Is&quot;)</h2>
+              <p>The service is provided &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; without warranties of any kind, either express or implied. While we strive for high-quality resizing and reliable performance, we do not guarantee that the service will be error-free or uninterrupted. We are not responsible for any data loss, including the loss of your original or resized images.</p>
             </section>
 
             <section>
